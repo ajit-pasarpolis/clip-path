@@ -1,0 +1,84 @@
+:root {
+  --card-height-number: 180;
+  --card-height: calc(var(--card-height-number)* 1px);
+  --left-gray-clip-top-number: 143;
+  --left-gray-clip-top: calc(var(--left-gray-clip-top-number) * 1px);
+  --left-gray-clip-bottom-number: 40;
+  --left-gray-clip-bottom: calc(var(--left-gray-clip-bottom-number) * 1px);
+  --border-radius: 8px;
+  --bottom-div-height-number: 50;
+  --bottom-div-height: calc(var(--bottom-div-height-number) * 1px);
+  --mid-div-height: 50px;
+  --bottom-div-clip-length: calc(((((var(--left-gray-clip-top-number) - var(--left-gray-clip-bottom-number)) * var(--bottom-div-height-number)) / var(--card-height-number)) * 1px));
+}
+
+.container {
+  background-color: 	#f1e09d;
+  width: 328px;
+  height: var(--card-height);
+  border-radius: var(--border-radius);
+  position: relative;
+}
+.top-content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left-grey {
+  background-color: grey;
+  clip-path: polygon(0 0, var(--left-gray-clip-top) 0, var(--left-gray-clip-bottom) 100%, 0 100%);
+  height: 100%;
+  border-radius: var(--border-radius);
+}
+
+.mid-container {
+  height: var(--mid-div-height);
+  position: absolute;
+  bottom: var(--bottom-div-height);
+  width: 100%;
+  background-color: #faf0c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom-text-container {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  height: var(--bottom-div-height);
+  background-color: #999999;
+  width: 100%;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.bottom-left {
+  height: 100%;
+  background-color: #5c5c5c;
+  width: calc(var(--bottom-div-clip-length) + var(--left-gray-clip-bottom));
+  clip-path: polygon(0 0, 100% 0, var(--left-gray-clip-bottom) 100%, 0 100%);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.bottom-right {
+  height: 100%;
+  flex-grow: 1;
+  background-color: #91875f;
+  clip-path: polygon(10px 0, 100% 0, 100% 100%, calc(var(--bottom-div-clip-length) + 10px) 100%);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.bottom-text {
+  color: white;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
